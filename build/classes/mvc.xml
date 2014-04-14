@@ -12,9 +12,13 @@
     <action path="/input" type="com.action.UserAction" method="goInput">
       <forward name="success" path="/WEB-INF/jsp/input.jsp"></forward>
     </action>
-     <action path="/getFile" type="com.action.AnalyseAction" method="analyseFiles">
-   
+    <action path="/getFile" type="com.action.AnalyseAction" method="analyseFiles">
+     <forward name="success" path="/WEB-INF/jsp/excel_info.jsp"></forward>
     </action>
+    <action path="/getExcel" type="com.action.AnalyseAction" method="analyseExcel">
+  
+    </action>
+    <action path="/getDetail" type="com.action.AnalyseAction" method="getDetail"></action>
 
 	<!-- User相关action -->
 	<action path="/checkName" type="com.action.UserAction" method="checkUserName">

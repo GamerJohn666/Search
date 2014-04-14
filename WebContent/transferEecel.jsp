@@ -45,7 +45,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	//上传	    	
 	    	su.upload();
 	    	Request req = su.getRequest();
-	    	//将上传的文件对象以文件的形式存储到服务器中
 	    	//获得上传的文件对象
 	    	File file1 = su.getFiles().getFile(0);
 	    	//获取上传文件的名字
@@ -58,13 +57,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	File file2 = su.getFiles().getFile(1);
 	    	//获取上传文件的名字
 	    	importName = file2.getFileName();
-	    	System.out.println(importName);
 	    	//定义上传的路径
 	         String filePath2 = "Compare/"+importName;
 	    	//保存
 	    	file2.saveAs(filePath2, File.SAVEAS_VIRTUAL);
 	    	
-	    	//备注：在上传文件时  request对象取不了值
 	    	//需要使用jar包中的Request
 	    	//获取文本值
 	    	String url = "getFile.do?exportName="+exportName+"&importName="+importName;

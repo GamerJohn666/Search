@@ -22,5 +22,5 @@
 <script src="<%=root%>/js/common/custom.js" type="text/javascript"></script>
 <script src="<%=root%>/js/common/validator.js" type="text/javascript"></script>
 
-
+<script src="<%=root%>/js/Calendar.js" type="text/javascript"></script>
 
