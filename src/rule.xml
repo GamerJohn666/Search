@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<digester-rules>
+	<pattern value="action-mappings">
+		<pattern value="action">
+			<object-create-rule classname="com.config.ActionConfig"/>
+			<set-next-rule methodname="addActionConfig"/>
+			<set-properties-rule/>
+			<pattern value="forward">
+				<object-create-rule classname="com.config.ForwardConfig"/>
+				<set-next-rule methodname="addForwardConfig"/>
+				<set-properties-rule/>
+			</pattern>
+		</pattern>
+	</pattern>
+</digester-rules>
