@@ -1,7 +1,9 @@
 package com.action;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -33,7 +35,7 @@ public class UserAction
     // 用户登录
     public String login(HttpServletRequest request, HttpServletResponse response)
     {
-        HttpSession session = request.getSession(true);
+        //HttpSession session = request.getSession(true);
         BaseEntity baseEntity = new BaseEntity();
         String name = request.getParameter("empUser");
         String password = request.getParameter("empPassword");
@@ -52,7 +54,6 @@ public class UserAction
         {
             e.printStackTrace();
         }
-        System.out.println(baseEntity.getIsSuccessOrfail());
         JSONObject arr = JSONObject.fromObject(baseEntity);
         out.println(arr);   
         out.flush();
@@ -64,7 +65,10 @@ public class UserAction
     // 进入主画面
     public String goToMain(HttpServletRequest request, HttpServletResponse response)
     {
-         return "success";
+
+        File file = new File(request.getSession().getServletContext().getRealPath("/Compare/"));
+        file.mkdirs();
+        return "success";
     }
     
     // 进入对比画面
@@ -78,6 +82,22 @@ public class UserAction
     {
          return "success";
     }
+    
+    public String getFile(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException
+    {
+
+        //String exportFileName = request.getParameter("exportName");
+        String exportFileName = new String((request.getParameter("exportName")).getBytes("ISO-8859-1"),"UTF-8");
+        System.out.println(exportFileName);
+        String importFileName = new String((request.getParameter("exportName")).getBytes("ISO-8859-1"),"UTF-8");
+        System.out.println(importFileName);
+        //File exportFile = new File(request.getSession().getServletContext().getRealPath("//Compare//"+exportFileName));
+     
+        //File importFile = new File(request.getSession().getServletContext().getRealPath("//Compare//"+importFileName));
+        
+        return "ajax";
+    }
+    
     
     //用户注销
     public String logOff(HttpServletRequest request, HttpServletResponse response)

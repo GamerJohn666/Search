@@ -20,6 +20,11 @@ import com.config.ModuleConfig;
 public class ActionServlet extends HttpServlet
 {
 
+    /**
+     * serialVersionUID
+     */
+    private static final long serialVersionUID = 1L;
+
     private ModuleConfig moduleConfig;
     
     private Map<String,Object> actions = new HashMap<String,Object>();
@@ -62,10 +67,8 @@ public class ActionServlet extends HttpServlet
             if(!name.toString().equals("ajax"))//处理ajax请求
             {
                 ForwardConfig forward = actionConfig.findForwardConfig(name.toString());
-                System.out.println("x");
                 if(forward.isRedirect())
                 {
-                    System.out.println("1");
                     response.sendRedirect(request.getContextPath()+forward.getPath());
                 }
                 else
