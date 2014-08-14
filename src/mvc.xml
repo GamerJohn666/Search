@@ -18,7 +18,12 @@
     <action path="/getExcel" type="com.action.AnalyseAction" method="analyseExcel">
   
     </action>
-    <action path="/getDetail" type="com.action.AnalyseAction" method="getDetail"></action>
+    <action path="/getDetail" type="com.action.AnalyseAction" method="getDetail">
+    </action>
+     <action path="/getDetaByDate" type="com.action.AnalyseAction" method="getDataByDate">
+    </action>
+    
+    
 
 	<!-- User相关action -->
 	<action path="/checkName" type="com.action.UserAction" method="checkUserName">
